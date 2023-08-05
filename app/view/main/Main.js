@@ -1,8 +1,3 @@
-/**
- * This class is the main view for the application. It is specified in app.js as the
- * "mainView" property. That setting causes an instance of this class to be created and
- * added to the Viewport container.
- */
 Ext.define("TaskManager.view.main.Main", {
   extend: "Ext.tab.Panel",
   xtype: "app-main",
@@ -11,6 +6,9 @@ Ext.define("TaskManager.view.main.Main", {
 
   controller: "main",
   viewModel: "main",
+
+  // make sure it fills the whole screen
+  fullscreen: true,
 
   defaults: {
     tab: {

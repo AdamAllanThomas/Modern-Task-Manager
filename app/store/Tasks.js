@@ -20,5 +20,8 @@ Ext.define("TaskManager.store.Tasks", {
       update: "PATCH",
       destroy: "DELETE",
     },
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("yourTokenKey"), // Replace 'yourTokenKey' with the key you're using to store the token
+    },
   },
 });

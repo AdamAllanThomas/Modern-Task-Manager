@@ -15,6 +15,19 @@ Ext.define("TaskManager.Application", {
     },
   },
 
+  views: ["TaskManager.view.login.Login", "TaskManager.view.main.Main"],
+
+  launch: function () {
+    var loggedIn = localStorage.getItem("LoggedIn");
+    console.log("Logged In:", loggedIn); // Check the logged-in value
+    var view = Ext.create({
+      xtype: loggedIn ? "app-main" : "login",
+      renderTo: Ext.getBody(),
+    });
+    console.log("View:", view);
+    view.show();
+  },
+
   onAppUpdate: function () {
     Ext.Msg.confirm(
       "Application Update",
