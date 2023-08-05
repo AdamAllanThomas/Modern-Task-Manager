@@ -1,7 +1,5 @@
-Ext.define('TaskManager.model.Personnel', {
-    extend: 'TaskManager.model.Base',
+Ext.define("TaskManager.model.Personnel", {
+  extend: "TaskManager.model.Base",
 
-    fields: [
-        'name', 'email', 'phone'
-    ]
+  fields: ["name", "email", "phone"],
 });

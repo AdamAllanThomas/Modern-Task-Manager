@@ -2,18 +2,18 @@
  * This class is the controller for the main view for the application. It is specified as
  * the "controller" of the Main view class.
  */
-Ext.define('TaskManager.view.main.MainController', {
-    extend: 'Ext.app.ViewController',
+Ext.define("TaskManager.view.main.MainController", {
+  extend: "Ext.app.ViewController",
 
-    alias: 'controller.main',
+  alias: "controller.main",
 
-    onItemSelected: function (sender, record) {
-        Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
-    },
+  onItemSelected: function (sender, record) {
+    Ext.Msg.confirm("Confirm", "Are you sure?", "onConfirm", this);
+  },
 
-    onConfirm: function (choice) {
-        if (choice === 'yes') {
-            //
-        }
+  onConfirm: function (choice) {
+    if (choice === "yes") {
+      //
     }
+  },
 });

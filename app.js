@@ -3,16 +3,17 @@
  * and launch() the Application class.
  */
 Ext.application({
-    extend: 'TaskManager.Application',
+  extend: "TaskManager.Application",
 
-    name: 'TaskManager',
+  name: "TaskManager",
 
-    requires: [
-        // This will automatically load all classes in the TaskManager namespace
-        // so that application classes do not need to require each other.
-        'TaskManager.*'
-    ],
+  requires: [
+    // This will automatically load all classes in the TaskManager namespace
+    // so that application classes do not need to require each other.
+    "TaskManager.*",
+  ],
+  stores: ["Users", "Tasks"],
 
-    // The name of the initial view to create.
-    mainView: 'TaskManager.view.main.Main'
+  // The name of the initial view to create.
+  mainView: "TaskManager.view.main.Main",
 });
