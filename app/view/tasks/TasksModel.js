@@ -9,6 +9,12 @@ Ext.define("TaskManager.view.tasks.TasksModel", {
   stores: {
     tasks: {
       type: "tasks",
+      sorters: [
+        {
+          property: "dueDate",
+          direction: "ASC",
+        },
+      ],
     },
   },
 });

@@ -1,13 +1,13 @@
 Ext.define("TaskManager.view.users.List", {
   extend: "Ext.grid.Grid",
   xtype: "userlist",
-
-  requires: ["TaskManager.store.Users"],
-
-  title: "Users",
-
-  store: {
-    type: "users",
+  id: "userlist",
+  requires: ["TaskManager.store.Users", "Ext.form.Panel"],
+  controller: "users",
+  viewModel: "userlistmodel",
+  bind: {
+    title: "{titleText}",
+    store: "{users}",
   },
 
   columns: [
@@ -31,7 +31,24 @@ Ext.define("TaskManager.view.users.List", {
     },
   ],
 
-  listeners: {
-    select: "onItemSelected",
-  },
+  items: [
+    {
+      xtype: "toolbar",
+      docked: "top",
+      items: [
+        {
+          xtype: "button",
+          text: "Add",
+          iconCls: "x-fa fa-plus",
+          handler: "onAddClick",
+        },
+        {
+          xtype: "button",
+          text: "Delete",
+          iconCls: "x-fa fa-trash",
+          handler: "onRemoveButtonClick",
+        },
+      ],
+    },
+  ],
 });

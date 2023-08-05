@@ -36,8 +36,12 @@ Ext.define("TaskManager.view.tasks.TasksController", {
 
   onSaveTask: function (btn) {
     var win = btn.up("window");
-    var form = win.down("formpanel[reference=addTaskForm]"); // Using the reference we defined earlier
+    var form = win.down("formpanel[reference=addTaskForm]");
     var values = form.getValues();
+    // Convert the date format before adding to the store
+    values.dueDate = formatDateToYYYYMMDD(values.dueDate);
+    console.log(values.dueDate);
+
     var tasksStore = Ext.getStore("Tasks");
     tasksStore.add(values);
     var grid = Ext.getCmp("tasklist");
@@ -61,3 +65,15 @@ Ext.define("TaskManager.view.tasks.TasksController", {
     return value === 0 || value > 1 ? value + " Tasks" : value + " Task";
   },
 });
+
+function formatDateToYYYYMMDD(date) {
+  var d = new Date(date),
+    month = "" + (d.getMonth() + 1),
+    day = "" + d.getDate(),
+    year = d.getFullYear();
+
+  if (month.length < 2) month = "0" + month;
+  if (day.length < 2) day = "0" + day;
+
+  return [year, month, day].join("-");
+}

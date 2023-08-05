@@ -6,7 +6,7 @@ Ext.define("TaskManager.store.Tasks", {
   autoSync: true,
   proxy: {
     type: "rest",
-    url: "http://localhost:3000/api/tasks",
+    url: "http://localhost:8000/api/tasks/",
     reader: {
       type: "json",
       rootProperty: "data",
