@@ -4,9 +4,19 @@
 Ext.define("TaskManager.view.tasks.List", {
   extend: "Ext.grid.Grid",
   xtype: "tasklist",
-
-  requires: ["TaskManager.store.Tasks", "TaskManager.store.Users"],
-
+  requires: [
+    "TaskManager.store.Tasks",
+    "TaskManager.store.Users",
+    "Ext.grid.plugin.PagingToolbar",
+    "Ext.grid.plugin.SummaryRow",
+    "Ext.grid.plugin.CellEditing",
+    "Ext.form.field.ComboBox",
+  ],
+  title: "Tasks",
+  controller: "tasks",
+  store: {
+    type: "tasks",
+  },
   plugins: {
     pagingtoolbar: true,
     gridsummaryrow: true,
@@ -14,19 +24,9 @@ Ext.define("TaskManager.view.tasks.List", {
       clicksToEdit: 2,
     },
   },
-
-  controller: "tasks",
-
   selModel: {
     mode: "multi",
   },
-
-  title: "Tasks",
-
-  store: {
-    type: "tasks",
-  },
-
   editable: true,
 
   columns: [
@@ -69,11 +69,15 @@ Ext.define("TaskManager.view.tasks.List", {
     {
       text: "Status",
       dataIndex: "status",
-      width: 100,
+      width: 110,
       editor: {
         xtype: "combobox",
+        forceSelection: true,
         allowBlank: false,
         store: ["New", "In Progress", "Completed"],
+        displayField: "field1",
+        valueField: "field1",
+        queryMode: "local",
       },
     },
     {
@@ -83,13 +87,17 @@ Ext.define("TaskManager.view.tasks.List", {
       editor: {
         xtype: "combobox",
         allowBlank: false,
+        forceSelection: true,
         store: ["Low", "Medium", "High"],
+        displayField: "field1",
+        valueField: "field1",
+        queryMode: "local",
       },
     },
     {
       text: "Assignee",
       dataIndex: "assignedTo",
-      width: 100,
+      width: 130,
       renderer: "assigneeRenderer",
       editor: {
         xtype: "combobox",
