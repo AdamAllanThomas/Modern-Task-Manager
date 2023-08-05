@@ -13,7 +13,12 @@ Ext.define("TaskManager.store.Tasks", {
     },
     writer: {
       type: "json",
-      writeAllFields: true,
+    },
+    actionMethods: {
+      create: "POST",
+      read: "GET",
+      update: "PATCH",
+      destroy: "DELETE",
     },
   },
 });

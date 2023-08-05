@@ -38,10 +38,7 @@ Ext.define("TaskManager.view.tasks.TasksController", {
     var win = btn.up("window");
     var form = win.down("formpanel[reference=addTaskForm]");
     var values = form.getValues();
-    // Convert the date format before adding to the store
     values.dueDate = formatDateToYYYYMMDD(values.dueDate);
-    console.log(values.dueDate);
-
     var tasksStore = Ext.getStore("Tasks");
     tasksStore.add(values);
     var grid = Ext.getCmp("tasklist");

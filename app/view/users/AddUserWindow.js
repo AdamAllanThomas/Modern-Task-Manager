@@ -21,7 +21,7 @@ Ext.define("TaskManager.view.users.AddUserWindow", {
           placeholder: "Full Name",
         },
         {
-          xtype: "textfield",
+          xtype: "emailfield",
           name: "email",
           fieldLabel: "Email",
           allowBlank: false,
@@ -35,7 +35,7 @@ Ext.define("TaskManager.view.users.AddUserWindow", {
           placeholder: "Phone Number",
         },
         {
-          xtype: "textfield",
+          xtype: "passwordfield",
           name: "password",
           fieldLabel: "Password",
           allowBlank: false,

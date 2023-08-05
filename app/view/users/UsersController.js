@@ -10,15 +10,22 @@ Ext.define("TaskManager.view.users.UsersController", {
 
   onSaveUser: function (btn) {
     var win = btn.up("window");
-    var form = win.down("formpanel[reference=addUserForm]"); // Using the reference we defined earlier
-    // var values = form.getValues();
+    var form = win.down("formpanel[reference=addUserForm]");
     var values = form.getValues();
     values.username = values.email;
     var usersStore = Ext.getStore("Users");
     usersStore.add(values);
-    var grid = Ext.getCmp("userlist");
-    grid.getStore().load();
-    win.close();
+    usersStore.sync({
+      success: function () {
+        var grid = Ext.getCmp("userlist");
+        grid.getStore().load();
+        win.close();
+      },
+      failure: function (batch, options) {
+        console.error("Failed to save user:", batch.exceptions);
+        win.close();
+      },
+    });
   },
 
   onCancelAddUser: function (btn) {
@@ -42,5 +49,9 @@ Ext.define("TaskManager.view.users.UsersController", {
       var selectedRecords = grid.getSelection();
       store.remove(selectedRecords);
     }
+  },
+
+  totalCountRenderer: function (value, summaryData, dataIndex) {
+    return value + " users";
   },
 });
