@@ -14,10 +14,11 @@ Ext.define("TaskManager.view.tasks.List", {
     "Ext.form.field.ComboBox",
     "Ext.form.Panel",
   ],
-  title: "Tasks",
+  viewModel: "taskslistmodel",
   controller: "tasks",
-  store: {
-    type: "tasks",
+  bind: {
+    title: "{titleText}",
+    store: "{tasks}",
   },
   plugins: {
     pagingtoolbar: true,

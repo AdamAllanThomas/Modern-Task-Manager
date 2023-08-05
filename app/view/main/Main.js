@@ -21,12 +21,10 @@ Ext.define("TaskManager.view.main.Main", {
   tabBarPosition: "bottom",
 
   items: [
-    // TODO - Replace the content of this view to suit the needs of your application.
     {
       title: "Home",
       iconCls: "x-fa fa-home",
       layout: "fit",
-      // The following grid shares a store with the classic version's grid as well!
       items: [
         {
           xtype: "tasklist",
@@ -34,8 +32,15 @@ Ext.define("TaskManager.view.main.Main", {
       ],
     },
     {
+      title: "My Tasks",
+      iconCls: "x-fa fa-tasks",
+      bind: {
+        html: "{loremIpsum}",
+      },
+    },
+    {
       title: "Users",
-      iconCls: "x-fa fa-user",
+      iconCls: "x-fa fa-users",
       layout: "fit",
       items: [
         {
@@ -43,13 +48,7 @@ Ext.define("TaskManager.view.main.Main", {
         },
       ],
     },
-    {
-      title: "Groups",
-      iconCls: "x-fa fa-users",
-      bind: {
-        html: "{loremIpsum}",
-      },
-    },
+
     {
       title: "Settings",
       iconCls: "x-fa fa-cog",
