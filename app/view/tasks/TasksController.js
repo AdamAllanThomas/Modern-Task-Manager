@@ -30,17 +30,24 @@ Ext.define("TaskManager.view.tasks.TasksController", {
   },
 
   onAddButtonClick: function () {
-    var grid = this.getView();
-    var store = grid.getStore();
-    store.add({
-      name: "New Task",
-      description: "New Task Description",
-      dueDate: new Date(),
-      status: "New",
-      priority: "Low",
-      assignedTo: 1,
-    });
-    store.load();
+    var win = Ext.create("TaskManager.view.tasks.AddTaskWindow");
+    win.show();
+  },
+
+  onSaveTask: function (btn) {
+    var win = btn.up("window");
+    var form = win.down("formpanel[reference=addTaskForm]"); // Using the reference we defined earlier
+    var values = form.getValues();
+    var tasksStore = Ext.getStore("Tasks");
+    tasksStore.add(values);
+    var grid = Ext.getCmp("tasklist");
+    grid.getStore().load();
+    win.close();
+  },
+
+  onCancelAddTask: function (btn) {
+    var win = btn.up("window");
+    win.close();
   },
 
   onRemoveButtonClick: function () {

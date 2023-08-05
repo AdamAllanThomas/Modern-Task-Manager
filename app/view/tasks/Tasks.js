@@ -4,6 +4,7 @@
 Ext.define("TaskManager.view.tasks.List", {
   extend: "Ext.grid.Grid",
   xtype: "tasklist",
+  id: "tasklist",
   requires: [
     "TaskManager.store.Tasks",
     "TaskManager.store.Users",
@@ -11,6 +12,7 @@ Ext.define("TaskManager.view.tasks.List", {
     "Ext.grid.plugin.SummaryRow",
     "Ext.grid.plugin.CellEditing",
     "Ext.form.field.ComboBox",
+    "Ext.form.Panel",
   ],
   title: "Tasks",
   controller: "tasks",
