@@ -21,13 +21,22 @@ Ext.define("TaskManager.view.users.List", {
     cellediting: {
       clicksToEdit: 2,
     },
+    rowexpander: true,
   },
+
+  itemConfig: {
+    body: {
+      tpl: `<img height="100" width="100" src="https://cdn.britannica.com/34/206334-050-7637EB66/French-fries.jpg" />`,
+    },
+  },
+
+  height: "100%",
   editable: true,
   columns: [
     {
       text: "Name",
       dataIndex: "name",
-      width: 100,
+      flex: 1,
       summary: "count",
       summaryRenderer: "totalCountRenderer",
       cell: {
@@ -50,6 +59,57 @@ Ext.define("TaskManager.view.users.List", {
     {
       text: "Phone",
       dataIndex: "phone",
+      width: 150,
+      editor: {
+        xtype: "textfield",
+        allowBlank: false,
+      },
+    },
+    {
+      text: "Role",
+      dataIndex: "role",
+      width: 85,
+      renderer: "roleRenderer",
+    },
+    {
+      text: "Street Address",
+      dataIndex: "street_address",
+      width: 150,
+      editor: {
+        xtype: "textfield",
+        allowBlank: false,
+      },
+    },
+    {
+      text: "City",
+      dataIndex: "city",
+      width: 150,
+      editor: {
+        xtype: "textfield",
+        allowBlank: false,
+      },
+    },
+    {
+      text: "State",
+      dataIndex: "state",
+      width: 85,
+      editor: {
+        xtype: "textfield",
+        allowBlank: false,
+      },
+    },
+    {
+      text: "Country",
+      dataIndex: "country",
+      width: 150,
+      editor: {
+        xtype: "textfield",
+        allowBlank: false,
+      },
+    },
+    {
+      text: "Postal Code",
+      dataIndex: "postal_code",
       width: 150,
       editor: {
         xtype: "textfield",

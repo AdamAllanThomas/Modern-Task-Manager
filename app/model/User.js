@@ -9,5 +9,11 @@ Ext.define("TaskManager.model.User", {
     "username",
     "password",
     "profile_picture",
+    "role",
+    "street_address",
+    "city",
+    "state",
+    "country",
+    "postal_code",
   ],
 });

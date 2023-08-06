@@ -42,26 +42,40 @@ Ext.define("TaskManager.view.auth.AuthController", {
   onRegisterSubmit: function () {
     var form = this.lookupReference("registrationform");
     var values = form.getValues();
-    values["username"] = values["email"];
-    Ext.Ajax.request({
-      url: "http://localhost:8000/api/users/register/",
-      method: "POST",
-      jsonData: values,
-      success: function () {
-        this.onBackToLoginClick();
-        Ext.Msg.alert(
-          "Registration Successful",
-          "Please login with your new credentials."
-        );
-      },
-      failure: function () {
-        Ext.Msg.alert(
-          "Registration Failed",
-          "Please check the details and try again."
-        );
-      },
-      scope: this,
-    });
+    if (values["password"] === values["confirmPassword"]) {
+      values["username"] = values["email"];
+      values["name"] = values["firstName"] + " " + values["lastName"];
+      var usersStore = Ext.getStore("Users");
+      if (usersStore.getCount() !== 0) {
+        values["role"] = "admin";
+      } else {
+        values["role"] = "user";
+      }
+      Ext.Ajax.request({
+        url: "http://localhost:8000/api/users/register/",
+        method: "POST",
+        jsonData: values,
+        success: function () {
+          this.onBackToLoginClick();
+          Ext.Msg.alert(
+            "Registration Successful",
+            "Please login with your new credentials."
+          );
+        },
+        failure: function () {
+          Ext.Msg.alert(
+            "Registration Failed",
+            "Please check the details and try again."
+          );
+        },
+        scope: this,
+      });
+    } else {
+      Ext.Msg.alert(
+        "Registration Failed",
+        "Please ensure the passwords match."
+      );
+    }
   },
 
   onBackToLoginClick: function () {

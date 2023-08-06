@@ -50,9 +50,12 @@ Ext.define("TaskManager.view.main.Main", {
     {
       title: "Settings",
       iconCls: "x-fa fa-cog",
-      bind: {
-        html: "{loremIpsum}",
-      },
+      layout: "fit",
+      items: [
+        {
+          xtype: "usersettings",
+        },
+      ],
     },
   ],
 });

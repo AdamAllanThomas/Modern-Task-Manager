@@ -1,23 +1,26 @@
 Ext.define("TaskManager.view.settings.Settings", {
   extend: "Ext.panel.Panel",
-  alias: "widget.usersettings",
-  title: "User Settings",
+  xtype: "usersettings",
   layout: "vbox",
   padding: 10,
-  controller: "usersettings",
-  viewModel: "usersettings",
+  controller: "settings",
+  viewModel: "settings",
+
+  bind: {
+    title: "{titleText}",
+  },
 
   items: [
     // Display current settings
     {
       xtype: "displayfield",
-      fieldLabel: "Username",
-      bind: "{currentUsername}", // Assuming you're using ViewModel to bind data.
+      fieldLabel: "Email",
+      bind: "{currentUserData.email}", // Assuming you're using ViewModel to bind data.
     },
     {
       xtype: "displayfield",
-      fieldLabel: "Email",
-      bind: "{currentUserEmail}",
+      fieldLabel: "Name",
+      bind: "{currentUserData.name}",
     },
 
     // Buttons
@@ -40,7 +43,7 @@ Ext.define("TaskManager.view.settings.Settings", {
 
     // Update Profile Form
     {
-      xtype: "form",
+      xtype: "formpanel",
       itemId: "profileForm",
       title: "Update Profile",
       hidden: true,
@@ -49,18 +52,19 @@ Ext.define("TaskManager.view.settings.Settings", {
       defaultType: "textfield",
       items: [
         {
-          fieldLabel: "Username",
-          name: "username",
-          bind: "{currentUsername}",
+          fieldLabel: "Name",
+          name: "name",
+          bind: "{currentUserData.name}",
         },
         {
           fieldLabel: "Email",
           name: "email",
-          bind: "{currentUserEmail}",
+          bind: "{currentUserData.email}",
         },
         {
           fieldLabel: "Phone",
           name: "phone",
+          bind: "{currentUserData.phone}",
         },
       ],
       buttons: [
@@ -82,7 +86,7 @@ Ext.define("TaskManager.view.settings.Settings", {
 
     // Change Password Form
     {
-      xtype: "form",
+      xtype: "formpanel",
       itemId: "passwordForm",
       title: "Change Password",
       hidden: true,

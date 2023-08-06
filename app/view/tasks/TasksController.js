@@ -60,16 +60,6 @@ Ext.define("TaskManager.view.tasks.TasksController", {
   totalCountRenderer: function (value, summaryData, dataIndex) {
     return value === 0 || value > 1 ? value + " Tasks" : value + " Task";
   },
-
-  onAfterRender: function () {
-    var window = this.getView();
-    console.log(window);
-    var combo = window.down('combobox[name="assignedTo"]');
-    console.log(combo);
-    var userId = window.getViewModel().get("currentUser").id;
-    console.log(userId);
-    combo.value = userId;
-  },
 });
 
 function formatDateToYYYYMMDD(date) {

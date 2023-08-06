@@ -9,10 +9,6 @@ Ext.define("TaskManager.view.tasks.AddTaskWindow", {
   title: "Add New Task",
   controller: "tasks",
 
-  listeners: {
-    afterrender: "onAfterRender",
-  },
-
   items: [
     {
       xtype: "formpanel",

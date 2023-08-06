@@ -32,17 +32,11 @@ Ext.define("TaskManager.Application", {
               Authorization: "Bearer " + jwtToken, // Add this header
             },
             success: function (response) {
-              var user = Ext.decode(response.responseText);
-              const currentUserStore = Ext.getStore("CurrentUser");
-              const currentUserData = currentUserStore.getData();
+              const currentUserData = Ext.getStore("CurrentUser").getData();
               console.log(currentUserData);
-              currentUserData.id = user.id;
-              currentUserData.name = user.name;
-              currentUserData.email = user.email;
-              currentUserData.phone = user.phone;
-              currentUserData.username = user.username;
-              currentUserData.profile_picture = user.profile_picture;
-              // currentUserStore.setData(currentUserData);
+              Object.assign(currentUserData, {
+                ...Ext.decode(response.responseText),
+              });
             },
           });
         },

@@ -9,6 +9,11 @@ Ext.define("TaskManager.store.CurrentUser", {
     phone: null,
     username: null,
     profile_picture: null,
+    role: null,
+    street_address: null,
+    city: null,
+    state: null,
+    postal_code: null,
   },
 
   proxy: {

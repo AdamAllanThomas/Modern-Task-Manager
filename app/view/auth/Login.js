@@ -20,7 +20,7 @@ Ext.define("TaskManager.view.auth.Login", {
         name: "username",
         fieldLabel: "Username",
         allowBlank: false,
-        placeholder: "Enter username",
+        label: "Email",
       },
       {
         xtype: "textfield",
@@ -28,7 +28,7 @@ Ext.define("TaskManager.view.auth.Login", {
         inputType: "password",
         fieldLabel: "Password",
         allowBlank: false,
-        placeholder: "Enter password",
+        label: "Password",
       },
     ],
     buttons: [

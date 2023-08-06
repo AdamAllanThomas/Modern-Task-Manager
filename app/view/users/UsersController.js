@@ -54,4 +54,8 @@ Ext.define("TaskManager.view.users.UsersController", {
   totalCountRenderer: function (value, summaryData, dataIndex) {
     return value + " users";
   },
+
+  roleRenderer: function (value, record) {
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  },
 });
