@@ -1,11 +1,11 @@
-Ext.define("TaskManager.view.login.Login", {
+Ext.define("TaskManager.view.auth.Login", {
   extend: "Ext.window.Window",
   xtype: "login",
   reference: "login",
 
-  requires: ["TaskManager.view.login.LoginController", "Ext.form.Panel"],
+  requires: ["TaskManager.view.auth.AuthController", "Ext.form.Panel"],
 
-  controller: "login",
+  controller: "auth",
   bodyPadding: 10,
   title: "Login Window",
   closable: false,

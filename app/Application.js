@@ -12,6 +12,7 @@ Ext.define("TaskManager.Application", {
 
   launch: function () {
     var jwtToken = localStorage.getItem("JWTToken");
+    // var jwtToken = null;
     var refreshToken = localStorage.getItem("RefreshToken");
     if (jwtToken && refreshToken) {
       Ext.Ajax.request({
