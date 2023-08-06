@@ -5,11 +5,12 @@ Ext.define("TaskManager.store.Tasks", {
   autoLoad: true,
   autoSync: true,
   proxy: {
-    type: "rest",
+    type: "dynamicheaderrest",
     url: "http://localhost:8000/api/tasks/",
     reader: {
       type: "json",
-      rootProperty: "data",
+      rootProperty: "results",
+      totalProperty: "count",
     },
     writer: {
       type: "json",
@@ -19,9 +20,6 @@ Ext.define("TaskManager.store.Tasks", {
       read: "GET",
       update: "PATCH",
       destroy: "DELETE",
-    },
-    headers: {
-      Authorization: "Bearer " + localStorage.getItem("yourTokenKey"), // Replace 'yourTokenKey' with the key you're using to store the token
     },
   },
 });

@@ -70,7 +70,7 @@ Ext.define("TaskManager.view.tasks.AddTaskWindow", {
           displayField: "name",
           valueField: "id",
           allowBlank: false,
-          value: 1, // TODO: Make this defualt to the current user
+          value: 1,
           forceSelection: true,
         },
       ],

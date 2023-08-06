@@ -5,11 +5,12 @@ Ext.define("TaskManager.store.Users", {
   autoLoad: true,
   autoSync: true,
   proxy: {
-    type: "rest",
+    type: "dynamicheaderrest",
     url: "http://localhost:8000/api/users/",
     reader: {
       type: "json",
-      rootProperty: "data",
+      rootProperty: "results",
+      totalProperty: "count",
     },
     writer: {
       type: "json",

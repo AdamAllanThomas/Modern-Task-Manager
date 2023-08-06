@@ -1,6 +1,3 @@
-/**
- * This view is an example list of people.
- */
 Ext.define("TaskManager.view.tasks.List", {
   extend: "Ext.grid.Grid",
   xtype: "tasklist",

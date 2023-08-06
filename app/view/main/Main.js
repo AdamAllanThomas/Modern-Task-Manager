@@ -22,19 +22,19 @@ Ext.define("TaskManager.view.main.Main", {
     {
       title: "Home",
       iconCls: "x-fa fa-home",
+      bind: {
+        html: "{loremIpsum}",
+      },
+    },
+    {
+      title: "Tasks",
+      iconCls: "x-fa fa-tasks",
       layout: "fit",
       items: [
         {
           xtype: "tasklist",
         },
       ],
-    },
-    {
-      title: "My Tasks",
-      iconCls: "x-fa fa-tasks",
-      bind: {
-        html: "{loremIpsum}",
-      },
     },
     {
       title: "Users",

@@ -1,8 +1,3 @@
-/**
- * The main application class. An instance of this class is created by app.js when it
- * calls Ext.application(). This is the ideal place to handle application launch and
- * initialization details.
- */
 Ext.define("TaskManager.Application", {
   extend: "Ext.app.Application",
 
@@ -15,17 +10,29 @@ Ext.define("TaskManager.Application", {
     },
   },
 
-  views: ["TaskManager.view.login.Login", "TaskManager.view.main.Main"],
-
   launch: function () {
-    var loggedIn = localStorage.getItem("LoggedIn");
-    console.log("Logged In:", loggedIn); // Check the logged-in value
-    var view = Ext.create({
-      xtype: loggedIn ? "app-main" : "login",
-      renderTo: Ext.getBody(),
-    });
-    console.log("View:", view);
-    view.show();
+    var jwtToken = localStorage.getItem("JWTToken");
+    var refreshToken = localStorage.getItem("RefreshToken");
+    if (jwtToken && refreshToken) {
+      Ext.Ajax.request({
+        url: "http://localhost:8000/api/token/verify/",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        jsonData: { token: jwtToken },
+        success: function () {},
+        failure: function () {
+          Ext.create({
+            xtype: "login",
+          }).show();
+        },
+      });
+    } else {
+      Ext.create({
+        xtype: "login",
+      }).show();
+    }
   },
 
   onAppUpdate: function () {

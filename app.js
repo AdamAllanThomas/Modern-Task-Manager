@@ -15,5 +15,5 @@ Ext.application({
   stores: ["Users", "Tasks"],
 
   // The name of the initial view to create.
-  // mainView: "TaskManager.view.main.Main",
+  mainView: "TaskManager.view.main.Main",
 });

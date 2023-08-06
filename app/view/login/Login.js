@@ -1,6 +1,7 @@
 Ext.define("TaskManager.view.login.Login", {
   extend: "Ext.window.Window",
   xtype: "login",
+  reference: "login",
 
   requires: ["TaskManager.view.login.LoginController", "Ext.form.Panel"],
 
@@ -19,6 +20,7 @@ Ext.define("TaskManager.view.login.Login", {
         name: "username",
         fieldLabel: "Username",
         allowBlank: false,
+        placeholder: "Enter username",
       },
       {
         xtype: "textfield",
@@ -26,6 +28,7 @@ Ext.define("TaskManager.view.login.Login", {
         inputType: "password",
         fieldLabel: "Password",
         allowBlank: false,
+        placeholder: "Enter password",
       },
     ],
     buttons: [
@@ -33,7 +36,16 @@ Ext.define("TaskManager.view.login.Login", {
         text: "Login",
         formBind: true,
         handler: "onLoginClick",
+        defaultButton: true,
       },
+      {
+        text: "Register",
+        handler: "onRegisterClick",
+      },
+      // {
+      //   text: "Forgot Password",
+      //   handler: "onForgotPasswordClick",
+      // },
     ],
   },
 });
