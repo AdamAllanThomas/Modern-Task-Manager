@@ -8,6 +8,11 @@ Ext.define("TaskManager.view.tasks.AddTaskWindow", {
   layout: "fit",
   title: "Add New Task",
   controller: "tasks",
+
+  listeners: {
+    afterrender: "onAfterRender",
+  },
+
   items: [
     {
       xtype: "formpanel",
@@ -69,9 +74,6 @@ Ext.define("TaskManager.view.tasks.AddTaskWindow", {
           },
           displayField: "name",
           valueField: "id",
-          allowBlank: false,
-          value: 1,
-          forceSelection: true,
         },
       ],
     },

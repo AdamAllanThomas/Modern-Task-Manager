@@ -12,7 +12,7 @@ Ext.application({
     // so that application classes do not need to require each other.
     "TaskManager.*",
   ],
-  stores: ["Users", "Tasks"],
+  stores: ["Users", "Tasks", "CurrentUser"],
 
   // The name of the initial view to create.
   mainView: "TaskManager.view.main.Main",

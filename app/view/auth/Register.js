@@ -46,13 +46,14 @@ Ext.define("TaskManager.view.auth.Register", {
     ],
     buttons: [
       {
+        text: "Return to Login",
+        handler: "onBackToLoginClick",
+      },
+      {
         text: "Submit Registration",
         formBind: true,
         handler: "onRegisterSubmit",
-      },
-      {
-        text: "Return to Login",
-        handler: "onBackToLoginClick",
+        defaultButton: true,
       },
     ],
   },

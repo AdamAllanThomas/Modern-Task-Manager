@@ -1,5 +1,13 @@
 Ext.define("TaskManager.model.User", {
   extend: "TaskManager.model.Base",
 
-  fields: ["id", "name", "email", "phone", "username", "password"],
+  fields: [
+    "id",
+    "name",
+    "email",
+    "phone",
+    "username",
+    "password",
+    "profile_picture",
+  ],
 });

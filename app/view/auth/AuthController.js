@@ -47,14 +47,14 @@ Ext.define("TaskManager.view.auth.AuthController", {
       url: "http://localhost:8000/api/users/register/",
       method: "POST",
       jsonData: values,
-      success: function (response) {
+      success: function () {
         this.onBackToLoginClick();
         Ext.Msg.alert(
           "Registration Successful",
           "Please login with your new credentials."
         );
       },
-      failure: function (response) {
+      failure: function () {
         Ext.Msg.alert(
           "Registration Failed",
           "Please check the details and try again."
