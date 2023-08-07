@@ -21,13 +21,6 @@ Ext.define("TaskManager.view.users.List", {
     cellediting: {
       clicksToEdit: 2,
     },
-    rowexpander: true,
-  },
-
-  itemConfig: {
-    body: {
-      tpl: `<img height="100" width="100" src="https://cdn.britannica.com/34/206334-050-7637EB66/French-fries.jpg" />`,
-    },
   },
 
   height: "100%",

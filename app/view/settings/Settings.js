@@ -1,7 +1,6 @@
 Ext.define("TaskManager.view.settings.Settings", {
   extend: "Ext.panel.Panel",
   xtype: "usersettings",
-  layout: "vbox",
   padding: 10,
   controller: "settings",
   viewModel: "settings",
@@ -10,20 +9,21 @@ Ext.define("TaskManager.view.settings.Settings", {
     title: "{titleText}",
   },
 
-  items: [
-    // Display current settings
-    {
-      xtype: "displayfield",
-      fieldLabel: "Email",
-      bind: "{currentUserData.email}", // Assuming you're using ViewModel to bind data.
-    },
-    {
-      xtype: "displayfield",
-      fieldLabel: "Name",
-      bind: "{currentUserData.name}",
-    },
+  layout: "vbox",
 
-    // Buttons
+  items: [
+    {
+      xtype: "panel",
+      layout: "hbox",
+      items: [
+        {
+          xtype: "userinfopanel",
+        },
+        {
+          xtype: "usertasksgrid",
+        },
+      ],
+    },
     {
       xtype: "button",
       text: "Update Profile",
@@ -39,6 +39,12 @@ Ext.define("TaskManager.view.settings.Settings", {
       handler: function () {
         this.up("usersettings").down("#passwordForm").setVisible(true);
       },
+    },
+    {
+      xtype: "button",
+      text: "Logout",
+      margin: "10 0",
+      handler: "handleLogout",
     },
 
     // Update Profile Form
@@ -120,8 +126,8 @@ Ext.define("TaskManager.view.settings.Settings", {
         {
           text: "Cancel",
           handler: function () {
-            this.up("form").reset();
-            this.up("form").setVisible(false);
+            this.up("form").reset(); // reset the form values
+            this.up("form").setVisible(false); // hide the form
           },
         },
       ],

@@ -3,13 +3,16 @@ Ext.define("TaskManager.view.settings.SettingsModel", {
   alias: "viewmodel.settings",
 
   data: {
-    titleText: "Settings",
+    titleText: "My Profile",
     currentUserData: null,
   },
 
   stores: {
     CurrentUser: {
       type: "currentuser",
+    },
+    CurrentUserTasks: {
+      type: "currentusertasks",
     },
   },
 

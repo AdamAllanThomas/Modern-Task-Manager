@@ -115,33 +115,7 @@ Ext.define("TaskManager.view.tasks.List", {
 
   items: [
     {
-      xtype: "toolbar",
-      docked: "top",
-      items: [
-        {
-          xtype: "searchfield",
-          id: "searchfield",
-          name: "search",
-          placeholder: "Search...",
-          clearable: true,
-          flex: 1,
-          listeners: {
-            change: "onSearch",
-          },
-        },
-        {
-          xtype: "button",
-          text: "Add",
-          iconCls: "x-fa fa-plus",
-          handler: "onAddButtonClick",
-        },
-        {
-          xtype: "button",
-          text: "Delete",
-          iconCls: "x-fa fa-minus",
-          handler: "onRemoveButtonClick",
-        },
-      ],
+      xtype: "tasksgridtoolbar",
     },
   ],
 });

@@ -48,8 +48,8 @@ Ext.define("TaskManager.view.main.Main", {
     },
 
     {
-      title: "Settings",
-      iconCls: "x-fa fa-cog",
+      title: "My Profile",
+      iconCls: "x-fa fa-user",
       layout: "fit",
       items: [
         {

@@ -33,7 +33,6 @@ Ext.define("TaskManager.Application", {
             },
             success: function (response) {
               const currentUserData = Ext.getStore("CurrentUser").getData();
-              console.log(currentUserData);
               Object.assign(currentUserData, {
                 ...Ext.decode(response.responseText),
               });
