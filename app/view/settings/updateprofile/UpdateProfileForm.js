@@ -4,16 +4,8 @@ Ext.define("TaskManager.view.settings.updateprofile.UpdateProfileForm", {
   reference: "updateprofileform",
   layout: "form",
   defaultButton: "updateprofile",
-  defaultFocus: "email",
+  defaultFocus: "phone",
   items: [
-    {
-      xtype: "textfield",
-      name: "email",
-      fieldLabel: "Email",
-      vtype: "email",
-      allowBlank: false,
-      label: "Email",
-    },
     {
       xtype: "textfield",
       name: "phone",

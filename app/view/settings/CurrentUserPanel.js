@@ -3,8 +3,12 @@ Ext.define("TaskManager.view.settings.UserInfoPanel", {
   xtype: "userinfopanel",
   title: "Current User Info",
   width: 300,
-  autoHeight: true,
+  height: 500,
   viewModel: "settings",
+
+  updateInfo: function (data) {
+    this.getViewModel().set("currentUserData", data);
+  },
 
   items: [
     {

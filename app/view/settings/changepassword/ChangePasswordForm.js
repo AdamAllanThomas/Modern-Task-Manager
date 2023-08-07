@@ -2,7 +2,6 @@ Ext.define("TaskManager.view.settings.changepassword.ChangePasswordForm", {
   extend: "Ext.form.Panel",
   xtype: "changepasswordform",
   reference: "changepasswordform",
-  layout: "form",
   defaultButton: "changepassword",
   defaultFocus: "currentpassword",
   items: [

@@ -9,6 +9,7 @@ Ext.define("TaskManager.view.settings.updateprofile.UpdateProfile", {
   title: "Update Profile",
   closable: true,
   autoShow: true,
+  width: 500,
 
   items: {
     xtype: "updateprofileform",
@@ -20,7 +21,7 @@ Ext.define("TaskManager.view.settings.updateprofile.UpdateProfile", {
       {
         text: "Submit",
         formBind: true,
-        handler: "onUpdateProfileSubmit",
+        handler: "handleUpdateProfileSubmit",
         defaultButton: true,
       },
     ],
